@@ -1,0 +1,20 @@
+ <div class="container mt-4">
+ <div class="row">
+ <div class="col-6 m-auto">
+ <div class="flat-form">
+  <h1>Edit Flat</h1>
+  <%= simple_form_for flat do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :price_per_night, input_html: { min: '1'}  %>
+    <%= f.input :number_of_guests, input_html: { min: '1'}  %>
+    <%= f.input :picture_url  %>
+    <%= f.button :submit, "Save Flat", class: "btn  btn-outline-primary"%>
+    <%= link_to "Cancel", flats_path, class: "btn btn-outline-danger"%>
+    <%=   %>
+  <% end %>
+</div>
+</div>
+  </div>
+</div>
+

@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>All our Flats</h1>
+  <p><%= @presentation %> </p>
+  <div class="cards">
+    <% @flats.reverse.each do |flat| %>
+      <div class="card-trip m-4">
+        <img src="<%=flat.picture_url%>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= flat.name %></h2>
+            <p><%= flat.address %></p>
+            <p class="card-trip-pricing">
+            <i class="fas fa-user-friends"></i> <%= flat.number_of_guests %>
+            <i class="fas fa-euro-sign"></i> <%=flat.price_per_night%> </p>
+          </div>
+        </div>
+        <div class="card-trip card-trip-infos">
+          <%= link_to "More Info",  flat_path(flat),
+            class: "text-primary"%>
+          <%= link_to "Edit", edit_flat_path(flat),
+            class: "text-warning" %>
+          <%= link_to "Remove", flat_path(flat),
+            class: "text-danger",
+            method: :delete,
+            data: { confirm: "Are you sure to delete ?" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
